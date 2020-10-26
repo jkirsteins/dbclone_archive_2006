@@ -1,0 +1,42 @@
+rem ************************************************
+rem * 											   *
+rem *	Independent Basic test run #1			   *
+rem *	Author: Janis Kirsteins					   *
+rem *											   *
+rem ************************************************
+
+`set window off
+`set window on <-- this piece of shit works but after it changes it's fullscreen state to windowed or vice versa
+				 ` it fucking loses track of events and the app can't be closed anymore
+sync on
+
+right = 1
+
+x = 50
+y = 50
+
+size = 100
+
+load image "room 004.bmp", 1
+
+while 1 do
+  paste image 1,0,0
+  
+  ink(rgb(0,255,0), 0)
+  text(0, 0, "Green text on a dark blue background")
+  
+  if x > 300 then right = 0
+  if x < 50 then right = 1
+  
+  if right == 1 then x = x + 1
+  if right == 0 then x = x - 1
+  
+  ink(rgb(255, 255, 0), rgb(0,0,85))
+  box  x, y, x+size, y+size
+  
+sync
+end
+
+rem **********************
+rem * END OF PROGRAM     *
+rem **********************
